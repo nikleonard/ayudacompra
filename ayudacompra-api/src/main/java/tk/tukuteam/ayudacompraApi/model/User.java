@@ -2,24 +2,23 @@ package tk.tukuteam.ayudacompraApi.model;
 
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity(name = "User")
-@Table(name = "User")
-public class UserModel {
-
+@Entity
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID idUser;
-	private String name;
+	private String firstName;
 	private String lastName;
 	private int contactNumber;
 	private String username;
-	private String password;
+	private String userPassword;
 	private String email;
 	private UUID idUserStatus;
 	public UUID getIdUser() {
@@ -28,11 +27,11 @@ public class UserModel {
 	public void setIdUser(UUID idUser) {
 		this.idUser = idUser;
 	}
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 	public String getLastName() {
 		return lastName;
@@ -52,11 +51,11 @@ public class UserModel {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getPassword() {
-		return password;
+	public String getUserPassword() {
+		return userPassword;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
 	public String getEmail() {
 		return email;

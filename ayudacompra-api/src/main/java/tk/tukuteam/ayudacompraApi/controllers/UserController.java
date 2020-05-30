@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import tk.tukuteam.ayudacompraApi.model.UserModel;
+import tk.tukuteam.ayudacompraApi.model.User;
 import tk.tukuteam.ayudacompraApi.repository.UserRepository;
 @RestController
 @RequestMapping(value="/api/v1/user")
@@ -15,7 +15,7 @@ public class UserController {
 	private UserRepository userRepo;
 	
 	@GetMapping("/{email}")
-	public UserModel getUserFromEmail(@PathVariable("email") String email) {
+	public User getUserFromEmail(@PathVariable("email") String email) {
 		
 		return userRepo.findByEmail(email).get(0);
 	}
