@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  ayudacompra-api:
+    image: ayudacompra-api
+    build: .
+    ports:
+      - 9000
