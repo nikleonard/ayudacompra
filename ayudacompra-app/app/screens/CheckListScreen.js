@@ -8,53 +8,13 @@ import { human } from "react-native-typography";
 const products = [
   {
     id: "1",
-    name: "Arroz",
+    name: "Papel Higenico x8",
     quantity: "1",
   },
   {
     id: "2",
-    name: "Tallarines N°3",
+    name: "Cloro 1lt",
     quantity: "3",
-  },
-  {
-    id: "3",
-    name: "Salsa de tomates",
-    quantity: "2",
-  },
-  {
-    id: "4",
-    name: "Papel Higénico",
-    quantity: "1",
-  },
-  {
-    id: "5",
-    name: "Mermelada",
-    quantity: "2",
-  },
-  {
-    id: "6",
-    name: "Yogurt",
-    quantity: "4",
-  },
-  {
-    id: "7",
-    name: "Aliños",
-    quantity: "1",
-  },
-  {
-    id: "8",
-    name: "Fideos",
-    quantity: "1",
-  },
-  {
-    id: "9",
-    name: "Lentejas",
-    quantity: "1",
-  },
-  {
-    id: "10",
-    name: "Porotos",
-    quantity: "1",
   },
 ];
 

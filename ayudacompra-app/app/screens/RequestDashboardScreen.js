@@ -46,7 +46,7 @@ const RequestDashboardScreen = ({ navigation }) => {
                   <Image style={styles.stretch} source={{ uri: request.avatar }} />
                   <View style={styles.textContainer}>
                     <Text style={human.headline}>{request.name}</Text>
-                    <Text style={human.callout}>{request.direccion}</Text>
+                    <Text style={human.callout}>{request.address}</Text>
                   </View>
                 </View>
               </Card>
