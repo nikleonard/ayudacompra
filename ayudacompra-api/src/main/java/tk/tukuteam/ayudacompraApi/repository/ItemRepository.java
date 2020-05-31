@@ -5,12 +5,12 @@ import java.util.UUID;
 
 import org.springframework.data.repository.CrudRepository;
 
-import tk.tukuteam.ayudacompraApi.model.Item;
+import tk.tukuteam.ayudacompraApi.model.Items;
 
-public interface ItemRepository extends CrudRepository<Item, UUID>{
-	List<Item> findByQuantity(int quantity);
-	List<Item> findByItemName(String itemName);
-	List<Item> findByIdItemStatus(UUID idItemStatus);
-	List<Item> findByIdHelpRequest(UUID idHelpRequest);
+public interface ItemRepository extends CrudRepository<Items, UUID>{
+	List<Items> findByQuantity(int quantity);
+	List<Items> findByItemName(String itemName);
+	List<Items> findByIdItemStatus(UUID idItemStatus);
+	List<Items> findByIdHelpRequest(UUID idHelpRequest);
 	
 }

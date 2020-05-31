@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class HelpRequestViewModel implements Serializable {
 	private static final long serialVersionUID = 1L;
+	private String id;
 	private String name;
     private String avatar;
     private String address;
@@ -25,4 +26,11 @@ public class HelpRequestViewModel implements Serializable {
     public String getAddress() {
         return address;
     }
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+    
 }

@@ -16,8 +16,10 @@ import tk.tukuteam.ayudacompraApi.model.HelpRequest;
 import tk.tukuteam.ayudacompraApi.model.UserApp;
 import tk.tukuteam.ayudacompraApi.repository.AddressRepository;
 import tk.tukuteam.ayudacompraApi.repository.HelpRequestRepository;
+import tk.tukuteam.ayudacompraApi.repository.ItemRepository;
 import tk.tukuteam.ayudacompraApi.repository.UserAppRepository;
 import tk.tukuteam.ayudacompraApi.viewModel.HelpRequestViewModel;
+import tk.tukuteam.ayudacompraApi.viewModel.ItemViewModel;
 
 @RestController
 @RequestMapping(value="/api/v1/helprequest")
@@ -28,22 +30,46 @@ public class HelpRequestController {
 	private UserAppRepository UserAppRepo;
 	@Autowired
 	private AddressRepository AddressRepo;
+	@Autowired
+	private ItemRepository ItemRepo;
 	
 	@GetMapping("/")
 	public List<HelpRequestViewModel> getHelpRequests(){
 		ArrayList<HelpRequestViewModel> reqviews = new ArrayList<>();
 		HelpRequestRepo.findAll().forEach(req -> {
-			if(req.getIdHelpRequestStatus().equals(UUID.fromString("cab8842c-246f-43e8-97d8-62a6a1fc6946"))) {
 				HelpRequestViewModel reqview = new HelpRequestViewModel();
 				UserApp user = UserAppRepo.findById(req.getIdUserNeedy()).get();
 				Address addr = AddressRepo.findById(req.getIdAddress()).get();
 				reqview.setName(user.getFirstName() + " " + user.getLastName());
 				reqview.setAvatar("https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg");
 				reqview.setAddress(addr.getAddressName() + " " + addr.getAddressNumber());
+				reqview.setId(req.getIdHelpRequest().toString());
 				reqviews.add(reqview);
-			}
 		});
 		return reqviews;
+	}
+	
+	@GetMapping("/details")
+	public List<HelpRequest> getHelpRequestsDetails(){
+		List<HelpRequest> r = new ArrayList<>();
+		HelpRequestRepo.findAll().forEach(f -> {
+			r.add(f);
+		});
+		return r;
+	}
+	
+	@GetMapping("/{id}/items")
+	public List<ItemViewModel> getItemsFromRequest(@PathVariable("id") String id){
+		var itemList = new ArrayList<ItemViewModel>();
+		var items = ItemRepo.findByIdHelpRequest(UUID.fromString(id));
+		items.forEach(item -> {
+			ItemViewModel itemView = new ItemViewModel();
+			itemView.setId(item.getIdItems().toString());
+			itemView.setName(item.getItemName());
+			itemView.setQuantity(""+item.getQuantity());
+			itemList.add(itemView);
+		});
+		return itemList;
 	}
 	
 	@GetMapping("/{title}")
