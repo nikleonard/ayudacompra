@@ -19,6 +19,7 @@ public class User {
 	private String userPassword;
 	private String userEmail;
 	private UUID idUserStatus;
+	private String profileUrl;
 	
 	public UUID getIdUser() {
 		return idUser;
@@ -69,5 +70,10 @@ public class User {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	
+	public String getProfileUrl() {
+		return profileUrl;
+	}
+	public void setProfileUrl(String profileUrl) {
+		this.userEmail = profileUrl;
+	}
 }

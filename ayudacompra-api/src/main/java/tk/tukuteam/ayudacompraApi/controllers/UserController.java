@@ -52,4 +52,9 @@ public class UserController {
 		return userRepo.findByIdUserStatus(idUserStatus);
 	}
 	
+	@GetMapping("/url/{profileUrl}")
+	public List<User> getUserFromProfileUrl(@PathVariable("profileUrl") String profileUrl) {
+		return userRepo.findByProfileUrl(profileUrl);
+	}
+	
 }
