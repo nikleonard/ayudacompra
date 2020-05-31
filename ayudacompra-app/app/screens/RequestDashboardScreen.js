@@ -1,7 +1,14 @@
+import "react-native-gesture-handler";
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import { Card } from "react-native-elements";
-import { ScrollView } from "react-native";
 
 //Arreglo información user
 const users = [
@@ -47,7 +54,10 @@ const RequestDashboardScreen = ({ navigation }) => {
       <View style={styles.container}>
         {users.map((user, i) => {
           return (
-            <TouchableOpacity key={i}>
+            <TouchableOpacity
+              key={i}
+              onPress={() => navigation.navigate("RequestDetailScreen")}
+            >
               <Card style={styles.card}>
                 <View style={styles.cardContainer}>
                   <Image style={styles.stretch} source={{ uri: user.avatar }} />
