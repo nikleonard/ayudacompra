@@ -2,6 +2,7 @@ import "react-native-gesture-handler";
 import React from "react";
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { Card, Button } from "react-native-elements";
+import { human } from "react-native-typography";
 
 const products = [
   {
@@ -70,8 +71,8 @@ const RequestDetailScreen = ({ navigation }) => {
               }}
             />
             <View style={styles.textContainer}>
-              <Text>brynn</Text>
-              <Text>Calle 123</Text>
+              <Text style={human.headline}>brynn</Text>
+              <Text style={human.callout}>Calle 123</Text>
             </View>
           </View>
         </Card>
@@ -87,11 +88,10 @@ const RequestDetailScreen = ({ navigation }) => {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 flexWrap: "wrap",
-                margin: 16,
+                margin: 8,
               }}
             >
-              <Text>{product.name}</Text>
-              <Text>{product.quantity}</Text>
+              <Text style={human.body}>{product.name}</Text>
             </View>
           );
         })}

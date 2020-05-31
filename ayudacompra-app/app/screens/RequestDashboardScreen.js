@@ -9,6 +9,7 @@ import {
   ScrollView,
 } from "react-native";
 import { Card } from "react-native-elements";
+import { human } from "react-native-typography";
 
 //Arreglo información user
 const users = [
@@ -62,8 +63,8 @@ const RequestDashboardScreen = ({ navigation }) => {
                 <View style={styles.cardContainer}>
                   <Image style={styles.stretch} source={{ uri: user.avatar }} />
                   <View style={styles.textContainer}>
-                    <Text>{user.name}</Text>
-                    <Text>{user.direccion}</Text>
+                    <Text style={human.headline}>{user.name}</Text>
+                    <Text style={human.callout}>{user.direccion}</Text>
                   </View>
                 </View>
               </Card>

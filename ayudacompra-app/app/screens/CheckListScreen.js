@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Card, Button } from "react-native-elements";
 import CheckBox from "react-native-check-box";
+import { human } from "react-native-typography";
 
 const products = [
   {
@@ -81,7 +82,6 @@ class CheckListScreen extends Component {
               }}
             >
               <Text>{product.name}</Text>
-              <Text>{product.quantity}</Text>
               <CheckBox
                 style={{ flex: 1, padding: 10 }}
                 onClick={() => {
@@ -111,7 +111,6 @@ class CheckListScreen extends Component {
           rightIcon={{ name: "CheckListScreen" }}
           title="¿Tienes dificultades?"
           buttonStyle={{
-            backgroundColor: "#27AE60",
             width: "100%",
             marginTop: 16,
           }}
