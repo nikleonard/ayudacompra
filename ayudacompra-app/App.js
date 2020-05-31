@@ -4,6 +4,7 @@ import RequestDashboardScreen from "./app/screens/RequestDashboardScreen";
 import RequestDetailScreen from "./app/screens/RequestDetailScreen";
 import HelpRequestScreen from "./app/screens/HelpRequestScreen";
 import CreateProductListScreen from "./app/screens/CreateProductListScreen";
+import CheckListScreen from "./app/screens/CheckListScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -43,6 +44,13 @@ const App = () => {
         <Stack.Screen name = "CreateProductListScreen" 
           component={CreateProductListScreen} 
           options={{title:'Añadir productos'}} 
+        />
+        <Stack.Screen
+          name="CheckListScreen"
+          component={CheckListScreen}
+          options={{
+            title: "CheckList",
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
