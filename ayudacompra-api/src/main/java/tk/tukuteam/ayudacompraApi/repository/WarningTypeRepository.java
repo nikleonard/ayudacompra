@@ -8,6 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 import tk.tukuteam.ayudacompraApi.model.WarningType;
 
 public interface WarningTypeRepository extends CrudRepository<WarningType, UUID>{
-	List<WarningType> findByWarningType(String warningTypeName);
+	List<WarningType> findByWarningTypeName(String warningTypeName);
 
 }

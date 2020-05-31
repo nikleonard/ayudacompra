@@ -17,11 +17,9 @@ public class WarningTypeController {
 	@Autowired
 	WarningTypeRepository warningTypeRepo;
 	
-	@GetMapping("/name/{warningtype}")
-	public List<WarningType> getTypeFromWarning(@PathVariable("warningtype") String warningtype){
-	List<WarningType> type = warningTypeRepo.findByWarningType(warningtype);
-	return type;
-	
+	@GetMapping("/name/{warningTypeName}")
+	public List<WarningType> getWarningTypeFromWarning(@PathVariable("warningTypeName") String warningTypeName){
+		return warningTypeRepo.findByWarningTypeName(warningTypeName);
 	}
 	
 
