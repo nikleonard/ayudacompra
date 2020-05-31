@@ -19,6 +19,7 @@ public class User {
 	private String userPassword;
 	private String userEmail;
 	private UUID idUserStatus;
+	
 	public UUID getIdUser() {
 		return idUser;
 	}
