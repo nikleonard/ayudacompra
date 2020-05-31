@@ -2,6 +2,7 @@ import React from "react";
 import InitialScreen from "./app/screens/InitialScreen";
 import RequestDashboardScreen from "./app/screens/RequestDashboardScreen";
 import RequestDetailScreen from "./app/screens/RequestDetailScreen";
+import CheckListScreen from "./app/screens/CheckListScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -32,6 +33,14 @@ const App = () => {
           component={RequestDetailScreen}
           options={{
             title: "Detalle de solicitud",
+          }}
+        />
+
+        <Stack.Screen
+          name="CheckListScreen"
+          component={CheckListScreen}
+          options={{
+            title: "CheckList",
           }}
         />
       </Stack.Navigator>
