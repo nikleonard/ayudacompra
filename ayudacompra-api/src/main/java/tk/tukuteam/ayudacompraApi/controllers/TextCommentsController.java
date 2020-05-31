@@ -19,14 +19,14 @@ public class TextCommentsController {
 	@Autowired
 	TextCommentsRepository commentRepo;
 	
-	@GetMapping("/{id_comment_type}")
-	public List<TextComments> getTextCommentFromCommentType(@PathVariable("idCommentType") UUID idCommentType) {
+	@GetMapping("/{idCommentType}")
+	public List<TextComments> getTextCommentFromIdCommentType(@PathVariable("idCommentType") UUID idCommentType) {
 
 		return commentRepo.findByIdCommentType(idCommentType);
 		
 	}
 	
-	@GetMapping("/{content_comment}")
+	@GetMapping("/comment/{contentComment}")
 	public List<TextComments> getTextCommentFromContentComment(@PathVariable("contentComment") String contentComment) {
 
 		return commentRepo.findByContentComment(contentComment);
