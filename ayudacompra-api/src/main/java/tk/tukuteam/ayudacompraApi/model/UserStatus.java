@@ -8,22 +8,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Userstatus {
+public class UserStatus {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID iduserstatus;
-	private String statusname;
+	private UUID idUserStatus;
+	private String userStatusName;
 	public UUID getIdUserStatus() {
-		return iduserstatus;
+		return idUserStatus;
 	}
 	public void setIdUserStatus(UUID idUserStatus) {
-		this.iduserstatus = idUserStatus;
+		this.idUserStatus = idUserStatus;
 	}
-	public String getStatusname() {
-		return statusname;
+	public String getUserStatusName() {
+		return userStatusName;
 	}
-	public void setStatusname(String statusname) {
-		this.statusname = statusname;
+	public void setUserStatusName(String userStatusName) {
+		this.userStatusName = userStatusName;
 	}
+	
 	
 }

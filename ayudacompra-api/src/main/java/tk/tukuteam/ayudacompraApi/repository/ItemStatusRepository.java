@@ -5,9 +5,9 @@ import java.util.UUID;
 
 import org.springframework.data.repository.CrudRepository;
 
-import tk.tukuteam.ayudacompraApi.model.Itemstatus;
+import tk.tukuteam.ayudacompraApi.model.ItemStatus;
 
-public interface ItemStatusRepository  extends CrudRepository<Itemstatus, UUID>{
-	List<Itemstatus> findByItemstatus(String item_status_name);
+public interface ItemStatusRepository  extends CrudRepository<ItemStatus, UUID>{
+	List<ItemStatus> findByItemStatusName(String itemStatusName);
 
 }

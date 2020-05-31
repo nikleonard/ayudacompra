@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import tk.tukuteam.ayudacompraApi.model.*;
 
 public interface UserRepository extends CrudRepository<User,UUID> {
-	List<User> findByEmail(String email);
+	List<User> findByUserEmail(String userEmail);
 }
