@@ -126,10 +126,6 @@ const styles = StyleSheet.create({
   cardTextContainer: {
     flex: 1,
     flexDirection: "row",
-
-    // flexDirection: "row",
-    // margin: 5,
-    // justifyContent: "space-between",
   },
   textContainer: {
     justifyContent: "center",
