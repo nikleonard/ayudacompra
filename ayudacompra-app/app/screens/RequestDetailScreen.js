@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { Card, Button } from "react-native-elements";
 import Axios from "axios";
+import { human } from "react-native-typography";
 
 const RequestDetailScreen = ({ route,navigation }) => {
   const {requestId,name,avatar,address} = route.params;
@@ -33,8 +34,8 @@ const RequestDetailScreen = ({ route,navigation }) => {
               }}
             />
             <View style={styles.textContainer}>
-            <Text>{name}</Text>
-            <Text>{address}</Text>
+            <Text style={human.headline}>{name}</Text>
+            <Text style={human.callout}>{address}</Text>
             </View>
           </View>
         </Card>
@@ -50,11 +51,10 @@ const RequestDetailScreen = ({ route,navigation }) => {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 flexWrap: "wrap",
-                margin: 16,
+                margin: 8,
               }}
             >
-              <Text>{product.name}</Text>
-              <Text>{product.quantity}</Text>
+              <Text style={human.body}>{product.name}</Text>
             </View>
           );
         })}

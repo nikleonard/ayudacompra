@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Card } from "react-native-elements";
 import Axios from "axios";
+import { human } from "react-native-typography";
 
 const RequestDashboardScreen = ({ navigation }) => {
   const [requests,setRequests] = useState([]);
@@ -44,8 +45,8 @@ const RequestDashboardScreen = ({ navigation }) => {
                 <View style={styles.cardContainer}>
                   <Image style={styles.stretch} source={{ uri: request.avatar }} />
                   <View style={styles.textContainer}>
-                    <Text>{request.name}</Text>
-                    <Text>{request.address}</Text>
+                    <Text style={human.headline}>{request.name}</Text>
+                    <Text style={human.callout}>{request.direccion}</Text>
                   </View>
                 </View>
               </Card>
