@@ -9,51 +9,51 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import tk.tukuteam.ayudacompraApi.model.User;
-import tk.tukuteam.ayudacompraApi.repository.UserRepository;
+import tk.tukuteam.ayudacompraApi.model.UserApp;
+import tk.tukuteam.ayudacompraApi.repository.UserAppRepository;
 @RestController
 @RequestMapping(value="/api/v1/user")
-public class UserController {
+public class UserAppController {
 	@Autowired
-	private UserRepository userRepo;
+	private UserAppRepository userRepo;
 	
 	@GetMapping("/first/{firstName}")
-	public List<User> getUserByFirstName(@PathVariable("firstName") String firstName){
+	public List<UserApp> getUserByFirstName(@PathVariable("firstName") String firstName){
 		return userRepo.findByFirstName(firstName);
 	}
 	
 	@GetMapping("/last/{lastName}")
-	public List<User> getUserByLastName(@PathVariable("lastName") String lastName){
+	public List<UserApp> getUserByLastName(@PathVariable("lastName") String lastName){
 		return userRepo.findByLastName(lastName);
 	}
 	
 	@GetMapping("/{contactNumber}")
-	public List<User> getUserByContactNUmber(@PathVariable("contactNumber") int contactNumber){
+	public List<UserApp> getUserByContactNUmber(@PathVariable("contactNumber") int contactNumber){
 		return userRepo.findByContactNumber(contactNumber);
 	}
 	
 	@GetMapping("/name/{userName}")
-	public List<User> getUserByUserName(@PathVariable("userName") String userName){
+	public List<UserApp> getUserByUserName(@PathVariable("userName") String userName){
 		return userRepo.findByUserName(userName);
 	}
 	
 	@GetMapping("/pass/{userPassword}")
-	public List<User> getUserByUserPassword(@PathVariable("userPassword") String userPassword){
+	public List<UserApp> getUserByUserPassword(@PathVariable("userPassword") String userPassword){
 		return userRepo.findByUserPassword(userPassword);
 	}
 	
 	@GetMapping("/email/{userEmail}")
-	public List<User> getUserFromEmail(@PathVariable("userEmail") String userEmail) {
+	public List<UserApp> getUserFromEmail(@PathVariable("userEmail") String userEmail) {
 		return userRepo.findByUserEmail(userEmail);
 	}
 	
 	@GetMapping("/{idUserStatus}")
-	public List<User> getUserByUserStatus(@PathVariable("idUserStatus") UUID idUserStatus){
+	public List<UserApp> getUserByUserStatus(@PathVariable("idUserStatus") UUID idUserStatus){
 		return userRepo.findByIdUserStatus(idUserStatus);
 	}
 	
 	@GetMapping("/url/{profileUrl}")
-	public List<User> getUserFromProfileUrl(@PathVariable("profileUrl") String profileUrl) {
+	public List<UserApp> getUserFromProfileUrl(@PathVariable("profileUrl") String profileUrl) {
 		return userRepo.findByProfileUrl(profileUrl);
 	}
 	
