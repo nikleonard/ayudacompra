@@ -41,7 +41,7 @@ public class HelpRequestController {
 				UserApp user = UserAppRepo.findById(req.getIdUserNeedy()).get();
 				Address addr = AddressRepo.findById(req.getIdAddress()).get();
 				reqview.setName(user.getFirstName() + " " + user.getLastName());
-				reqview.setAvatar("https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg");
+				reqview.setAvatar(user.getProfileUrl());
 				reqview.setAddress(addr.getAddressName() + " " + addr.getAddressNumber());
 				reqview.setId(req.getIdHelpRequest().toString());
 				reqviews.add(reqview);
