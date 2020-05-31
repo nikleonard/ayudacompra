@@ -1,19 +1,51 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import InitialScreen from "./app/screens/InitialScreen";
+import RequestDashboardScreen from "./app/screens/RequestDashboardScreen";
+import RequestDetailScreen from "./app/screens/RequestDetailScreen";
+import CheckListScreen from "./app/screens/CheckListScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-export default function App() {
+const Stack = createStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="InitialScreen"
+          component={InitialScreen}
+          options={{
+            title: "AyudaCompra",
+          }}
+        />
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+        <Stack.Screen
+          name="RequestDashboardScreen"
+          component={RequestDashboardScreen}
+          options={{
+            title: "Tablero de solicitudes",
+          }}
+        />
+
+        <Stack.Screen
+          name="RequestDetailScreen"
+          component={RequestDetailScreen}
+          options={{
+            title: "Detalle de solicitud",
+          }}
+        />
+
+        <Stack.Screen
+          name="CheckListScreen"
+          component={CheckListScreen}
+          options={{
+            title: "CheckList",
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;
