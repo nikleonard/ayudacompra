@@ -1,14 +1,15 @@
+import "react-native-gesture-handler";
 import React from "react";
-import { StyleSheet, Text, View, Alert } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-elements";
 
-const InitialView = () => {
+const InitialScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>AyudaCompra</Text>
       <Button
         large
-        rightIcon={{ name: "helpRequestButton" }}
+        rightIcon={{ name: "HelpRequestButton" }}
         title="Solicitar Ayuda"
         buttonStyle={{
           backgroundColor: "#27AE60",
@@ -25,6 +26,7 @@ const InitialView = () => {
           backgroundColor: "#27AE60",
           width: "100%",
         }}
+        onPress={() => navigation.navigate("RequestDashboardScreen")}
       />
     </View>
   );
@@ -43,4 +45,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InitialView;
+export default InitialScreen;
