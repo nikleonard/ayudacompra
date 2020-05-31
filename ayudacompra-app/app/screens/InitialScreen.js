@@ -16,6 +16,7 @@ const InitialScreen = ({ navigation }) => {
           width: "100%",
           marginBottom: "2%",
         }}
+        onPress={() => navigation.navigate("HelpRequestScreen")}
       />
 
       <Button
