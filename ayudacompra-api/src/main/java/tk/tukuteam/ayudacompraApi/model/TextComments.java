@@ -13,7 +13,7 @@ public class TextComments {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID idComments;
-	private UUID idCommentRype;
+	private UUID idCommentType;
 	private String contentComment;
 	
 	public UUID getIdComments() {
@@ -23,10 +23,10 @@ public class TextComments {
 		this.idComments = idComments;
 	}
 	public UUID getIdCommentType() {
-		return idCommentRype;
+		return idCommentType;
 	}
 	public void setIdCommentType(UUID idCommentType) {
-		this.idCommentRype = idCommentType;
+		this.idCommentType = idCommentType;
 	}
 	public String getContentComment() {
 		return contentComment;

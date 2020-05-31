@@ -27,7 +27,7 @@ public class TextCommentsController {
 	}
 	
 	@GetMapping("/{content_comment}")
-	public List<TextComments> getTextCommentFromCommentType(@PathVariable("contentComment") String contentComment) {
+	public List<TextComments> getTextCommentFromContentComment(@PathVariable("contentComment") String contentComment) {
 
 		return commentRepo.findByContentComment(contentComment);
 		
