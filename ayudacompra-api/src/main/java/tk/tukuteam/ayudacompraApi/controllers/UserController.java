@@ -1,5 +1,7 @@
 package tk.tukuteam.ayudacompraApi.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,9 +16,8 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepo;
 	
-	@GetMapping("/{email}")
-	public User getUserFromEmail(@PathVariable("email") String email) {
-		
-		return userRepo.findByEmail(email).get(0);
+	@GetMapping("/{userEmail}")
+	public List<User> getUserFromEmail(@PathVariable("userEmail") String userEmail) {
+		return userRepo.findByUserEmail(userEmail);
 	}
 }

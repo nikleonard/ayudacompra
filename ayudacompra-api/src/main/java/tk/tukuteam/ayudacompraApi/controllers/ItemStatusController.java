@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import tk.tukuteam.ayudacompraApi.model.Itemstatus;
+import tk.tukuteam.ayudacompraApi.model.ItemStatus;
 import tk.tukuteam.ayudacompraApi.repository.ItemStatusRepository;
 
 @RestController
@@ -18,9 +18,9 @@ public class ItemStatusController {
 	ItemStatusRepository itemstatusRepo;
 	
 	
-	@GetMapping("/name/{item_status_name}")
-	public List<Itemstatus> getUserStatusByUID(@PathVariable("item_status_name") String item_status_name){
-		List<Itemstatus> itemstatus = itemstatusRepo.findByItemstatus(item_status_name);
+	@GetMapping("/name/{itemStatusName}")
+	public List<ItemStatus> getUserStatusByUID(@PathVariable("itemStatusName") String itemStatusName){
+		List<ItemStatus> itemstatus = itemstatusRepo.findByItemStatusName(itemStatusName);
 		return itemstatus;
 	}
 }

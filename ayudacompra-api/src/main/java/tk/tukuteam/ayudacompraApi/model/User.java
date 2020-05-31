@@ -15,9 +15,9 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private int contactNumber;
-	private String username;
+	private String userName;
 	private String userPassword;
-	private String email;
+	private String userEmail;
 	private UUID idUserStatus;
 	public UUID getIdUser() {
 		return idUser;
@@ -43,11 +43,12 @@ public class User {
 	public void setContactNumber(int contactNumber) {
 		this.contactNumber = contactNumber;
 	}
-	public String getUsername() {
-		return username;
+	
+	public String getUserName() {
+		return userName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getUserPassword() {
 		return userPassword;
@@ -55,17 +56,17 @@ public class User {
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
 	public UUID getIdUserStatus() {
 		return idUserStatus;
 	}
 	public void setIdUserStatus(UUID idUserStatus) {
 		this.idUserStatus = idUserStatus;
+	}
+	public String getUserEmail() {
+		return userEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 	
 }
