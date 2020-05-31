@@ -18,7 +18,7 @@ public class HelpRequestStatusController {
 	HelpRequestStatusRepository HelpRequestStatusRepo;
 	
 	@GetMapping("/name/{helpRequestStatusName}")
-	public List<HelpRequestStatus> getUserStatusByUID(@PathVariable("helprequeststatusname") String helprequeststatusname){
+	public List<HelpRequestStatus> getUserStatusByStatusName(@PathVariable("helpRequestStatusName") String helprequeststatusname){
 		List<HelpRequestStatus> helprequeststatus = HelpRequestStatusRepo.findByHelpRequestStatusName(helprequeststatusname);
 		return helprequeststatus;
 	}
