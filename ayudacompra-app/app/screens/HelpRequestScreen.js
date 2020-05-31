@@ -33,7 +33,6 @@ const HelpRequestScreen = ({ navigation }) => {
         title="Lista de compras"
         onPress={() => navigation.navigate("CreateProductListScreen")}
       />
-      <Text></Text>
     </View>
   );
 };
