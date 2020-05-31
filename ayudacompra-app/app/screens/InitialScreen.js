@@ -1,18 +1,24 @@
 import "react-native-gesture-handler";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { Button } from "react-native-elements";
+import { human } from "react-native-typography";
 
 const InitialScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.titleText}>AyudaCompra</Text>
+      <View style={styles.logo}>
+        <Image
+          style={{ width: 80, height: 80, resizeMode: "cover" }}
+          source={require("../../assets/ayudaCompra.png")}
+        />
+        <Text style={human.title1}>AyudaCompra</Text>
+      </View>
       <Button
         large
         rightIcon={{ name: "HelpRequestButton" }}
         title="Solicitar Ayuda"
         buttonStyle={{
-          backgroundColor: "#27AE60",
           width: "100%",
           marginBottom: "2%",
         }}
@@ -40,9 +46,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  titleText: {
-    fontSize: 20,
-    fontWeight: "bold",
+  logo: {
+    alignItems: "center",
+    justifyContent: "flex-end",
+    marginBottom: 20,
   },
 });
 
