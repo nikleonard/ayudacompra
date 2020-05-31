@@ -1,5 +1,5 @@
 import "react-native-gesture-handler";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,61 +9,43 @@ import {
   ScrollView,
 } from "react-native";
 import { Card } from "react-native-elements";
-
-//Arreglo información user
-const users = [
-  {
-    name: "brynn",
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg",
-    direccion: "Calle 123",
-  },
-  {
-    name: "A",
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg",
-    direccion: "Calle 123",
-  },
-  ,
-  {
-    name: "B",
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg",
-    direccion: "Calle 123",
-  },
-  ,
-  {
-    name: "C",
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg",
-    direccion: "Calle 123",
-  },
-  ,
-  {
-    name: "brynn",
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg",
-    direccion: "Calle 123",
-  },
-  ,
-  {
-    name: "brynn",
-    avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg",
-    direccion: "Calle 123",
-  },
-];
+import Axios from "axios";
 
 const RequestDashboardScreen = ({ navigation }) => {
+  const [requests,setRequests] = useState([]);
+  
+  let loaded = false;
+  useEffect(() => {
+    const getRequestsFromAPI = async() => {
+      const result = await Axios('http://192.168.1.89:9000/api/v1/helprequest/',);
+        if(!loaded){
+          setRequests(result.data);
+          loaded = true;
+        }
+      };
+      getRequestsFromAPI();
+    },[loaded]);
+
   return (
     <ScrollView>
       <View style={styles.container}>
-        {users.map((user, i) => {
+        {requests.map((request, i) => {
           return (
             <TouchableOpacity
-              key={i}
-              onPress={() => navigation.navigate("RequestDetailScreen")}
+              key={request.id}
+              onPress={() => navigation.navigate("RequestDetailScreen", {
+                requestId : request.id,
+                name : request.name,
+                avatar : request.avatar,
+                address : request.address
+              })}
             >
               <Card style={styles.card}>
                 <View style={styles.cardContainer}>
-                  <Image style={styles.stretch} source={{ uri: user.avatar }} />
+                  <Image style={styles.stretch} source={{ uri: request.avatar }} />
                   <View style={styles.textContainer}>
-                    <Text>{user.name}</Text>
-                    <Text>{user.direccion}</Text>
+                    <Text>{request.name}</Text>
+                    <Text>{request.address}</Text>
                   </View>
                 </View>
               </Card>

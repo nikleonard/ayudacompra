@@ -1,62 +1,25 @@
 import "react-native-gesture-handler";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { Card, Button } from "react-native-elements";
+import Axios from "axios";
 
-const products = [
-  {
-    id: "1",
-    name: "Arroz",
-    quantity: "1",
-  },
-  {
-    id: "2",
-    name: "Tallarines N°3",
-    quantity: "3",
-  },
-  {
-    id: "3",
-    name: "Salsa de tomates",
-    quantity: "2",
-  },
-  {
-    id: "4",
-    name: "Papel Higénico",
-    quantity: "1",
-  },
-  {
-    id: "5",
-    name: "Mermelada",
-    quantity: "2",
-  },
-  {
-    id: "6",
-    name: "Yogurt",
-    quantity: "4",
-  },
-  {
-    id: "7",
-    name: "Aliños",
-    quantity: "1",
-  },
-  {
-    id: "8",
-    name: "Fideos",
-    quantity: "1",
-  },
-  {
-    id: "9",
-    name: "Lentejas",
-    quantity: "1",
-  },
-  {
-    id: "10",
-    name: "Porotos",
-    quantity: "1",
-  },
-];
+const RequestDetailScreen = ({ route,navigation }) => {
+  const {requestId,name,avatar,address} = route.params;
+  let loaded = false;
+  const [products,setProducts] = useState([]);
 
-const RequestDetailScreen = ({ navigation }) => {
+  useEffect(() => {
+    const getProductsFromAPI = async() => {
+      const result = await Axios('http://192.168.1.89:9000/api/v1/helprequest/' + requestId + '/items',);
+        if(!loaded){
+          setProducts(result.data);
+          loaded = true;
+        }
+      };
+      getProductsFromAPI();
+  },[loaded]);
+  
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -66,12 +29,12 @@ const RequestDetailScreen = ({ navigation }) => {
               style={styles.stretch}
               source={{
                 uri:
-                  "https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg",
+                  avatar,
               }}
             />
             <View style={styles.textContainer}>
-              <Text>brynn</Text>
-              <Text>Calle 123</Text>
+            <Text>{name}</Text>
+            <Text>{address}</Text>
             </View>
           </View>
         </Card>
